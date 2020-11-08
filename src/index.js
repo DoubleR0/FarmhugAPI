@@ -1,8 +1,8 @@
 import pkg from 'apollo-server';
-const { ApolloServer } = pkg;
 import mongoose from 'mongoose';
 import typeDefs from './typeDefs.js';
 import resolvers from './resolvers.js';
+const { ApolloServer } = pkg;
 
 const uri = "mongodb+srv://admin:admin@cluster0.ze1ps.gcp.mongodb.net/FarmhugDB?retryWrites=true&w=majority";
 
