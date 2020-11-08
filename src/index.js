@@ -1,7 +1,6 @@
 import pkg from 'apollo-server';
-const { ApolloServer, gql } = pkg;
-import mongoose from 'mongoose'
-
+const { ApolloServer } = pkg;
+import mongoose from 'mongoose';
 import typeDefs from './typeDefs.js';
 import resolvers from './resolvers.js';
 
