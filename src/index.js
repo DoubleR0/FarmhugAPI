@@ -5,9 +5,9 @@ import resolvers from './resolvers.js';
 import express from 'express';
 import bodyParser from 'body-parser';
 import apollo from 'apollo-server-express';
-import { makeExecutableSchema } from '@graphql-tools/schema';
-// import pkg from '@graphql-tools/schema';
-// const { makeExecutableSchema } = pkg;
+// import { makeExecutableSchema } from '@graphql-tools/schema';
+import pkg from '@graphql-tools/schema';
+const { makeExecutableSchema } = pkg;
 const { graphqlExpress, graphiqlExpress } = apollo;
 // const { makeExecutableSchema } = pkg;
 
