@@ -5,9 +5,8 @@ import resolvers from './resolvers.js';
 import express from 'express';
 import bodyParser from 'body-parser';
 import pkg from 'apollo-server-express';
-import pkgj from 'graphql-tools';
-const { makeExecutableSchema } = pkgj;
-// const { ApolloServer } = pkg;
+import pkg from 'graphql-tools';
+const { makeExecutableSchema } = pkg;
 const { graphqlExpress, graphiqlExpress } = pkg;
 
 const uri = "mongodb+srv://admin:admin@cluster0.ze1ps.gcp.mongodb.net/FarmhugDB?retryWrites=true&w=majority";
