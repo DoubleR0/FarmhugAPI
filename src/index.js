@@ -6,8 +6,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import apollo from 'apollo-server-express';
 import pkg from 'graphql-tools';
-const { graphqlExpress, graphiqlExpress } = apollo;
 const { makeExecutableSchema } = pkg;
+const { graphqlExpress, graphiqlExpress } = apollo;
+// const { makeExecutableSchema } = pkg;
 
 const uri = "mongodb+srv://admin:admin@cluster0.ze1ps.gcp.mongodb.net/FarmhugDB?retryWrites=true&w=majority";
 
