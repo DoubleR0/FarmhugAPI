@@ -45,8 +45,18 @@ const schema = makeExecutableSchema({
   resolvers,
 })
 
+const middleware = (req, res, next) => {
+  /* ตรวจสอบว่า authorization คือ Boy หรือไม่*/
+     if(req.headers.authorization === "Boy")
+        next(); //อนุญาตให้ไปฟังก์ชันถัดไป
+     else
+        res.send("ไม่อนุญาต")
+  }; 
+
 const app = express();
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+
+app.use('/Authen', middleware, graphiqlExpress({ endpointURL: '/graphql' }));
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: schema }));
 app.use('/', graphiqlExpress({ endpointURL: '/graphql' }));
 
 
