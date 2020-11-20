@@ -51,7 +51,7 @@ const middleware = (req, res, next) => {
         next(); //อนุญาตให้ไปฟังก์ชันถัดไป
      else
         res.send("ไม่อนุญาต")
-  }; 
+  };
 
 const app = express();
 

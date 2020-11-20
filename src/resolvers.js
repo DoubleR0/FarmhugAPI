@@ -1,5 +1,5 @@
 import authentication from './models/authentication.js'
-import user from './models/authentication.js'
+import user from './models/user.js'
 import farm from './models/farm.js'
 import cowproperty from './models/cowproperty.js'
 import activity from './models/activity.js'
