@@ -47,7 +47,7 @@ const schema = makeExecutableSchema({
 
 const middleware = (req, res, next) => {
   /* ตรวจสอบว่า authorization คือ Boy หรือไม่*/
-     if(req.headers.authorization === "Boy")
+     if(req.headers.authorization === "Bearer Boy")
         next(); //อนุญาตให้ไปฟังก์ชันถัดไป
      else
         res.send("ไม่อนุญาต")
