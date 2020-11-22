@@ -15,14 +15,14 @@ type DateTime{
 }
 
 enum Role{
-  owner
-  employee
+  Owner
+  Employee
 }
 
 enum Status{
-  process
-  finish
-  delete
+  Process
+  Finish
+  Delete
 }
 
 type Farm{
@@ -192,15 +192,15 @@ input DateTimeInput{
   seconds: Int
 }
 
-input RoleInput{
-  owner
-  employee
+enum RoleInput{
+  Owner
+  Employee
 }
 
-input StatusInput{
-  process
-  finish
-  delete
+enum StatusInput{
+  Process
+  Finish
+  Delete
 }
 
 type Query {
