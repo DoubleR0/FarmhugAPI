@@ -1,13 +1,16 @@
 import mongoose from 'mongoose';
-import DateTime from './datetime.js'
 
 const Schema = mongoose.Schema
 const dataSchema = new Schema({
-    cow : {type: Number},
-    food : {type: Boolean},
-    water : {type: Boolean},
-    manure : {type: Boolean},
-    time_update : {type: Date},
+    name : {type: String},
+    currentAnimal : {type: Number},
+    maximumAnimal : {type: Number},
+    farm_id : {type: String},
+    food : {type: Number},
+    water : {type: Number},
+    manure : {type: Number},
+    updatedAt : {type: Date},
+    area : {type: String},
 })
 
 const data = mongoose.model('Stall', dataSchema, 'stall')

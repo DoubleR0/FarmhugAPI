@@ -3,11 +3,19 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema
 const dataSchema = new Schema({
     name : {type: String},
-    place : {type: String},
+    address : {type: String},
     imageURL : {type: String},
-    type_of_farm : {type: String},
+    type : {type: String},
+    location : {type: String},
+    distance: {type: mongoose.Decimal128},
     capacity : {type: Number},
     cow : {type: Number},
+    area : {type: String},
+    location : {type: String},
+    createdAt: {type: Date},
+    watercheck : {type: Number},
+    foodConsume : {type: Number},
+    employee : {type: Number},
 })
 
 const data = mongoose.model('Fram', dataSchema, 'fram')

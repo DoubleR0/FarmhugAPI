@@ -27,16 +27,22 @@ const resolvers = {
     },
   },
   Mutation: {
+    async user(root, {_id}) {
+      return await user.findById(_id);
+    },
     async createUser(root, { input }) {
       return await user.create(input);
     },
     async updateUser(root, { _id, input }) {
       return await user.findOneAndUpdate({
         _id
-      }, input,{new:true})
+      }, input,{new:true});
     },
     async deleteUser(root, { _id}) {
-      return await user.findByIdAndRemove(_id)
+      return await user.findByIdAndRemove(_id);
+    },
+    async authentication(root, {_id}) {
+      return await authentication.findById(_id);
     },
     async createAuthentication(root, { input }) {
       return await authentication.create(input);
@@ -44,10 +50,13 @@ const resolvers = {
     async updateAuthentication(root, { _id, input }) {
       return await authentication.findOneAndUpdate({
         _id
-      }, input,{new:true})
+      }, input,{new:true});
     },
     async deleteAuthentication(root, { _id}) {
-      return await authentication.findByIdAndRemove(_id)
+      return await authentication.findByIdAndRemove(_id);
+    },
+    async farm(root, { _id}) {
+      return await farm.findById(_id);
     },
     async createFarm(root, { input }) {
       return await farm.create(input);
@@ -55,10 +64,13 @@ const resolvers = {
     async updateFarm(root, { _id, input }) {
       return await farm.findOneAndUpdate({
         _id
-      }, input,{new:true})
+      }, input,{new:true});
     },
     async deleteFarm(root, { _id}) {
-      return await farm.findByIdAndRemove(_id)
+      return await farm.findByIdAndRemove(_id);
+    },
+    async cowproperty(root, { _id})  {
+      return await cowproperty.findById(_id);
     },
     async createCowproperty(root, { input }) {
       return await cowproperty.create(input);
@@ -66,10 +78,13 @@ const resolvers = {
     async updateCowproperty(root, { _id, input }) {
       return await cowproperty.findOneAndUpdate({
         _id
-      }, input,{new:true})
+      }, input,{new:true});
     },
     async deleteCowproperty(root, { _id}) {
-      return await cowproperty.findByIdAndRemove(_id)
+      return await cowproperty.findByIdAndRemove(_id);
+    },
+    async activity(root, { _id}) {
+      return await activity.findById(_id);
     },
     async createActivity(root, { input }) {
       return await activity.create(input);
@@ -77,10 +92,13 @@ const resolvers = {
     async updateActivity(root, { _id, input }) {
       return await activity.findOneAndUpdate({
         _id
-      }, input,{new:true})
+      }, input,{new:true});
     },
     async deleteActivity(root, { _id}) {
-      return await activity.findByIdAndRemove(_id)
+      return await activity.findByIdAndRemove(_id);
+    },
+    async stall(root, { _id}) {
+      return await stall.findById(_id);
     },
     async createStall(root, { input }) {
       return await stall.create(input);
@@ -88,10 +106,10 @@ const resolvers = {
     async updateStall(root, { _id, input }) {
       return await stall.findOneAndUpdate({
         _id
-      }, input,{new:true})
+      }, input,{new:true});
     },
     async deleteStall(root, { _id}) {
-      return await stall.findByIdAndRemove(_id)
+      return await stall.findByIdAndRemove(_id);
     },
   },
 };

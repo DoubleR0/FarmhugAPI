@@ -14,14 +14,33 @@ type DateTime{
   seconds: Int
 }
 
+enum Role{
+  owner
+  employee
+}
+
+enum Status{
+  process
+  finish
+  delete
+}
+
 type Farm{
   _id: ID
   name :String
-  place :String
+  address :String
+  description: String
+  distance: Float
   imageURL :String
-  type_of_farm :String
+  area :String
+  type :String
+  location :String
   capacity :Int
   cow :Int
+  createdAt :DateTime
+  watercheck :Int
+  foodConsume :Int
+  employee :Int
 }
 
 type User{
@@ -33,8 +52,9 @@ type User{
   email :String
   password :String
   imageURL :String
-  role_of_farm :String
-  role_of_user :String
+  type :String
+  role :Role
+  farm_id :ID
 }
 
 type Authentication{
@@ -45,29 +65,44 @@ type Authentication{
 
 type Cowproperty{
   _id: ID
+  name :String
   type :String
   stall :Int
   gene :String
-  birth :DateTime
   weight :Float
   height :Float
+  farm_id :ID
+  stall_id :ID
+  breed :String
+  dob :String
+  sex :String
+  imageUrl :String
 }
 
 type Activity{
   _id: ID
   name :String
+  farm_id :ID
+  cage_id :ID
+  stall_id :ID
+  type :String
   detail  :String
-  time  :DateTime
-  about  :String
-  farmer  :Int
+  alertDate :DateTime
+  updatedAt  :DateTime
+  status  :Status
+  creater_id  :ID
 }
 type Stall{
   _id: ID
-  cow  :Int
-  food   :Boolean
-  water   :Boolean
-  manure   :Boolean
-  time_update   :DateTime
+  name :String
+  currentAnimal  :Int
+  maximumAnimal :Int
+  farm_id :ID
+  food   :Int
+  water   :Int
+  manure   :Int
+  updatedAt   :DateTime
+  area :String
 }
 
 input UserInput{
@@ -143,6 +178,7 @@ type Query {
 }
 
 type Mutation {
+  user(_id: ID!): User
   createUser(input: UserInput): User
   updateUser(_id: ID!, input: UserInput): User
   deleteUser(_id: ID!): User

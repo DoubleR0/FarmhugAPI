@@ -17,8 +17,9 @@ const dataSchema = new Schema({
   email: {type: String},
   password: {type: String},
   imageURL: {type: String},
-  role_of_farm: {type: String},
-  role_of_user: {type: String},
+  type: {type: String},
+  role: {type: String},
+  farm_id: {type: String},
 })
 
 const data = mongoose.model('User', dataSchema, 'user')
