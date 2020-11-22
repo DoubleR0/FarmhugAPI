@@ -113,26 +113,41 @@ input UserInput{
   email :String
   password :String
   imageURL :String
-  role_of_farm :String
-  role_of_user :String
+  type :String
+  role :RoleInput
+  farm_id :ID
 }
 
 input CowpropertyInput{
+  name :String
   type :String
   stall :Int
   gene :String
-  birth :DateTimeInput
   weight :Float
   height :Float
+  farm_id :ID
+  stall_id :ID
+  breed :String
+  dob :String
+  sex :String
+  imageUrl :String
 }
 
 input FarmInput{
   name :String
-  place :String
+  address :String
+  description: String
+  distance: Float
   imageURL :String
-  type_of_farm :String
+  area :String
+  type :String
+  location :String
   capacity :Int
   cow :Int
+  createdAt :DateTimeInput
+  watercheck :Int
+  foodConsume :Int
+  employee :Int
 }
 
 input AuthenticationInput{
@@ -142,18 +157,27 @@ input AuthenticationInput{
 
 input ActivityInput{
   name :String
+  farm_id :ID
+  cage_id :ID
+  stall_id :ID
+  type :String
   detail  :String
-  time  :DateTimeInput
-  about  :String
-  farmer  :Int
+  alertDate :DateTimeInput
+  updatedAt  :DateTimeInput
+  status  :StatusInput
+  creater_id  :ID
 }
 
 input StallInput{
-  cow  :Int
-  food   :Boolean
-  water   :Boolean
-  manure   :Boolean
-  time_update   :DateTimeInput
+  name :String
+  currentAnimal  :Int
+  maximumAnimal :Int
+  farm_id :ID
+  food   :Int
+  water   :Int
+  manure   :Int
+  updatedAt   :DateTimeInput
+  area :String
 }
 
 input DateTimeInput{
@@ -166,6 +190,17 @@ input DateTimeInput{
   hours: Int
   minutes: Int
   seconds: Int
+}
+
+input RoleInput{
+  owner
+  employee
+}
+
+input StatusInput{
+  process
+  finish
+  delete
 }
 
 type Query {
