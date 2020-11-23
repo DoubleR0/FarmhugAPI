@@ -7,7 +7,7 @@ const dataSchema = new Schema({
     imageURL : {type: String},
     type : {type: String},
     location : {type: String},
-    distance: {type: mongoose.Decimal128},
+    distance: {type: Number},
     capacity : {type: Number},
     cow : {type: Number},
     area : {type: String},
