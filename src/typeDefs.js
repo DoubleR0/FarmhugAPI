@@ -17,6 +17,7 @@ type DateTime{
 enum Role{
   Owner
   Employee
+  NONE
 }
 
 enum Status{
@@ -195,6 +196,7 @@ input DateTimeInput{
 enum RoleInput{
   Owner
   Employee
+  NONE
 }
 
 enum StatusInput{

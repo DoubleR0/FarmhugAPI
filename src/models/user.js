@@ -13,7 +13,7 @@ const dataSchema = new Schema({
   firstname: {type: String},
   lastname: {type: String},
   line_account: {type: String},
-  username: {type: String},
+  username: {type: String, unique: true},
   email: {type: String},
   password: {type: String},
   imageURL: {type: String},
