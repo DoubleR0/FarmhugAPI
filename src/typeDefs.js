@@ -1,5 +1,5 @@
 import pkg from 'apollo-server';
-const { gql } = pkg;
+const { gql, useMutation } = pkg;
 
 export default gql`
 

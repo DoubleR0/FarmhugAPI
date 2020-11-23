@@ -5,6 +5,7 @@ import cowproperty from './models/cowproperty.js'
 import activity from './models/activity.js'
 import stall from './models/stall.js'
 
+
 const resolvers = {
   Query: {
     async users() {
@@ -70,7 +71,7 @@ const resolvers = {
       return await farm.findByIdAndRemove(_id);
     },
     async cowproperty(root, { _id})  {
-      return await cowproperty.findById(_id);
+      return await cowproperty.find(_id);
     },
     async createCowproperty(root, { input }) {
       return await cowproperty.create(input);
