@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 
 
 app.use('/user', router.post('/signup', create_user));
-app.use('/user', router.post('/login', passportLocal, login));
+app.use('/user', router.post('/login', login));
 
 
 app.use('/graphql', passportJWT, bodyParser.json(), graphqlExpress({ schema: schema }));
