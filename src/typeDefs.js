@@ -210,30 +210,30 @@ type Query {
   cowpropertys: [Cowproperty]!
   activitys: [Activity]!
   stalls: [Stall]!
+  user(_id: ID!): User
+  authentication(_id: ID!): Authentication
+  farm(_id: ID!): [Farm]!
+  cowproperty(_id: ID!): [Cowproperty]!
+  activity(_id: ID!): [Activity]!
+  stall(_id: ID!): [Stall]!
 }
 
 type Mutation {
-  user(_id: ID!): User
   createUser(input: UserInput): User
   updateUser(_id: ID!, input: UserInput): User
   deleteUser(_id: ID!): User
-  authentication(_id: ID!): Authentication
   createAuthentication(input: AuthenticationInput): Authentication
   updateAuthentication(_id: ID!, input: AuthenticationInput): Authentication
   deleteAuthentication(_id: ID!): Authentication
-  farm(_id: ID!): Farm
   createFarm(input: FarmInput): Farm
   updateFarm(_id: ID!, input: FarmInput): Farm
   deleteFarm(_id: ID!): Farm
-  cowproperty(_id: ID!): Cowproperty
   createCowproperty(input: CowpropertyInput): Cowproperty
   updateCowproperty(_id: ID!, input: CowpropertyInput): Cowproperty
   deleteCowproperty(_id: ID!): Cowproperty
-  activity(_id: ID!): Activity
   createActivity(input: ActivityInput): Activity
   updateActivity(_id: ID!, input: ActivityInput): Activity
   deleteActivity(_id: ID!): Activity
-  stall(_id: ID!): Stall
   createStall(input: StallInput): Stall
   updateStall(_id: ID!, input: StallInput): Stall
   deleteStall(_id: ID!): Stall

@@ -11,26 +11,41 @@ const resolvers = {
     async users() {
       return await user.find();
     },
+    async user(root, {_id}) {
+      return await user.findById(_id);
+    },
     async authentications() {
       return await authentication.find();
+    },
+    async authentication(root, {_id}) {
+      return await authentication.findById(_id);
     },
     async farms() {
       return await farm.find();
     },
+    async farm(root, { _id}) {
+      return await farm.findById(_id);
+    },
     async cowpropertys() {
       return await cowproperty.find();
+    },
+    async cowproperty(root, { _id})  {
+      return await cowproperty.find({$or:[{'farm_id':_id}, {'stall_id':_id}]});
     },
     async activitys() {
       return await activity.find();
     },
+    async activity(root, { _id}) {
+      return await activity.find({$or:[{'farm_id':_id}, {'stall_id':_id}, {'cage_id':_id}, {'creater_id':_id}]});
+    },
     async stalls() {
       return await stall.find();
     },
+    async stall(root, { _id}) {
+      return await stall.find({'farm_id':_id});
+    },
   },
   Mutation: {
-    async user(root, {_id}) {
-      return await user.findById(_id);
-    },
     async createUser(root, { input }) {
       return await user.create(input);
     },
@@ -41,9 +56,6 @@ const resolvers = {
     },
     async deleteUser(root, { _id}) {
       return await user.findByIdAndRemove(_id);
-    },
-    async authentication(root, {_id}) {
-      return await authentication.findById(_id);
     },
     async createAuthentication(root, { input }) {
       return await authentication.create(input);
@@ -56,9 +68,6 @@ const resolvers = {
     async deleteAuthentication(root, { _id}) {
       return await authentication.findByIdAndRemove(_id);
     },
-    async farm(root, { _id}) {
-      return await farm.findById(_id);
-    },
     async createFarm(root, { input }) {
       return await farm.create(input);
     },
@@ -69,9 +78,6 @@ const resolvers = {
     },
     async deleteFarm(root, { _id}) {
       return await farm.findByIdAndRemove(_id);
-    },
-    async cowproperty(root, { _id})  {
-      return await cowproperty.find(_id);
     },
     async createCowproperty(root, { input }) {
       return await cowproperty.create(input);
@@ -84,9 +90,6 @@ const resolvers = {
     async deleteCowproperty(root, { _id}) {
       return await cowproperty.findByIdAndRemove(_id);
     },
-    async activity(root, { _id}) {
-      return await activity.findById(_id);
-    },
     async createActivity(root, { input }) {
       return await activity.create(input);
     },
@@ -97,9 +100,6 @@ const resolvers = {
     },
     async deleteActivity(root, { _id}) {
       return await activity.findByIdAndRemove(_id);
-    },
-    async stall(root, { _id}) {
-      return await stall.findById(_id);
     },
     async createStall(root, { input }) {
       return await stall.create(input);
