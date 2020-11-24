@@ -4,6 +4,8 @@ import farm from './models/farm.js'
 import cowproperty from './models/cowproperty.js'
 import activity from './models/activity.js'
 import stall from './models/stall.js'
+import post from './models/post.js'
+import comment from './models/comment.js'
 
 
 const resolvers = {
@@ -43,6 +45,18 @@ const resolvers = {
     },
     async stall(root, { _id}) {
       return await stall.find({'farm_id':_id});
+    },
+    async posts() {
+      return await post.find();
+    },
+    async post(root, {_id}) {
+      return await post.find({$or:[{'farm_id':_id}, {'user_id':_id}]});
+    },
+    async comments() {
+      return await comment.find();
+    },
+    async comment(root, {_id}) {
+      return await comment.find({$or:[{'farm_id':_id}, {'user_id':_id}, {'post_id':_id}]});
     },
   },
   Mutation: {
@@ -114,6 +128,28 @@ const resolvers = {
     },
     async deleteStall(root, { _id}) {
       return await stall.findByIdAndRemove(_id);
+    },
+    async createPost(root, { input }) {
+      return await post.create(input);
+    },
+    async updatePost(root, { _id, input }) {
+      return await post.findOneAndUpdate({
+        _id
+      }, input,{new:true});
+    },
+    async deletePost(root, { _id}) {
+      return await post.findByIdAndRemove(_id);
+    },
+    async createComment(root, { input }) {
+      return await comment.create(input);
+    },
+    async updateComment(root, { _id, input }) {
+      return await comment.findOneAndUpdate({
+        _id
+      }, input,{new:true});
+    },
+    async deleteComment(root, { _id}) {
+      return await comment.findByIdAndRemove(_id);
     },
   },
 };

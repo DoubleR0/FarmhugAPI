@@ -20,6 +20,28 @@ type Location{
   longitude: Float
 }
 
+type Post{
+  _id: ID
+  farm_id: ID
+  user_id: ID
+  topic: String
+  detail: String
+  isPublic: Boolean
+  comments: String
+  createdAt: String
+  updatedAt: String
+}
+
+type Comment{
+  _id: ID
+  farm_id: ID
+  user_id: ID
+  post_id: ID
+  detail: String
+  createdAt: String
+  updatedAt: String
+}
+
 type Farm{
   _id: ID
   name :String
@@ -174,6 +196,27 @@ input StallInput{
   updatedAt   :String
   area :String
 }
+
+input PostInput{
+  farm_id: ID
+  user_id: ID
+  topic: String
+  detail: String
+  isPublic: Boolean
+  comments: String
+  createdAt: String
+  updatedAt: String
+}
+
+input CommentInput{
+  farm_id: ID
+  user_id: ID
+  post_id: ID
+  detail: String
+  createdAt: String
+  updatedAt: String
+}
+
 input LocationInput{
   latitude: Float
   longitude: Float
@@ -198,12 +241,16 @@ type Query {
   cowpropertys: [Cowproperty]!
   activitys: [Activity]!
   stalls: [Stall]!
+  posts: [Post]!
+  comments: [Comment]!
   user(_id: ID!): User
   authentication(_id: ID!): Authentication
   farm(_id: ID!): Farm
   cowproperty(_id: ID!): [Cowproperty]!
   activity(_id: ID!): [Activity]!
   stall(_id: ID!): [Stall]!
+  post(_id: ID!): [Post]!
+  comments(_id: ID!): [Comment]!
 }
 
 type Mutation {
@@ -226,6 +273,12 @@ type Mutation {
   createStall(input: StallInput): Stall
   updateStall(_id: ID!, input: StallInput): Stall
   deleteStall(_id: ID!): Stall
+  createPost(input: PostInput): Post
+  updatePost(_id: ID!, input: PostInput): Post
+  deletePost(_id: ID!): Post
+  createComment(input: CommentInput): Comment
+  updateComment(_id: ID!, input: CommentInput): Comment
+  deleteComment(_id: ID!): Comment
 }
 
 `;
