@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const dataSchema = new Schema({
     access_token : {type: String},
     refresh_token : {type: String},
-})
+},{ versionKey: false })
 
 const data = mongoose.model('Authentication', dataSchema, 'authentication')
 

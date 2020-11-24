@@ -12,7 +12,7 @@ const dataSchema = new Schema({
     updatedAt : {type: String},
     status : {type: String},
     creater_id : {type: String},
-})
+},{ versionKey: false })
 
 const data = mongoose.model('Activity', dataSchema, 'activity')
 

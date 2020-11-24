@@ -11,7 +11,7 @@ const dataSchema = new Schema({
     manure : {type: Number},
     updatedAt : {type: String},
     area : {type: String},
-})
+}, { versionKey: false })
 
 const data = mongoose.model('Stall', dataSchema, 'stall')
 

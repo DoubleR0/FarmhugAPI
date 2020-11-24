@@ -21,7 +21,7 @@ const dataSchema = new Schema({
   role: {type: String},
   farm_id: {type: String},
   isProfile: {type: Boolean},
-})
+},{ versionKey: false })
 
 const data = mongoose.model('User', dataSchema, 'user')
 // created

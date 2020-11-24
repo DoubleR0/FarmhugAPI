@@ -13,7 +13,7 @@ const dataSchema = new Schema({
     breed : {type: String},
     sex : {type: String},
     imageUrl : {type: String},
-})
+}, { versionKey: false })
 
 const data = mongoose.model('Cowproperty', dataSchema, 'cowproperty')
 

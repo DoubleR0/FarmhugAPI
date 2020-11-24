@@ -17,7 +17,7 @@ const dataSchema = new Schema({
     watercheck : {type: Number},
     foodConsume : {type: Number},
     employee : {type: Number},
-})
+}, { versionKey: false })
 
 const data = mongoose.model('Farm', dataSchema, 'farm')
 
