@@ -4,15 +4,15 @@ const { gql, useMutation } = pkg;
 export default gql`
 
 enum Role{
-  Owner
-  Employee
-  NONE
+  owner
+  employee
+  none
 }
 
 enum Status{
-  Process
-  Finish
-  Delete
+  process
+  finish
+  delete
 }
 
 type Farm{
@@ -173,15 +173,15 @@ input StallInput{
 }
 
 enum RoleInput{
-  Owner
-  Employee
-  NONE
+  owner
+  employee
+  none
 }
 
 enum StatusInput{
-  Process
-  Finish
-  Delete
+  process
+  finish
+  delete
 }
 
 type Query {
