@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const dataSchema = new Schema({
     name : {type: String},
     address : {type: String},
+    description : {type: String},
     imageURL : {type: String},
     type : {type: String},
     location : {type: String},
@@ -18,6 +19,6 @@ const dataSchema = new Schema({
     employee : {type: Number},
 })
 
-const data = mongoose.model('Fram', dataSchema, 'fram')
+const data = mongoose.model('Farm', dataSchema, 'farm')
 
 export default data;
