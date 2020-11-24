@@ -15,6 +15,11 @@ enum Status{
   delete
 }
 
+type Location{
+  latitude: Float
+  longitude: Float
+}
+
 type Farm{
   _id: ID
   name :String
@@ -24,7 +29,7 @@ type Farm{
   imageURL :String
   area :String
   type :String
-  location :String
+  location :Location
   capacity :Int
   cow :Int
   createdAt :String
@@ -131,7 +136,7 @@ input FarmInput{
   imageURL :String
   area :String
   type :String
-  location :String
+  location :Location
   capacity :Int
   cow :Int
   createdAt :String

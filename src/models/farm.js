@@ -12,7 +12,7 @@ const dataSchema = new Schema({
     capacity : {type: Number},
     cow : {type: Number},
     area : {type: String},
-    location : {type: String},
+    location : {type: {}},
     createdAt: {type: String},
     watercheck : {type: Number},
     foodConsume : {type: Number},
