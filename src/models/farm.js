@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema
+const locationSchema = new Schema({
+    latitude : {type: Number},
+    longitude : {type: Number},
+})
+
 const dataSchema = new Schema({
     name : {type: String},
     address : {type: String},
@@ -12,7 +17,7 @@ const dataSchema = new Schema({
     capacity : {type: Number},
     cow : {type: Number},
     area : {type: String},
-    location : {type: {}},
+    location : {type: locationSchema},
     createdAt: {type: String},
     watercheck : {type: Number},
     foodConsume : {type: Number},

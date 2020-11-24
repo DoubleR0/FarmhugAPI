@@ -136,7 +136,7 @@ input FarmInput{
   imageURL :String
   area :String
   type :String
-  location :Location
+  location :LocationInput
   capacity :Int
   cow :Int
   createdAt :String
@@ -173,6 +173,10 @@ input StallInput{
   manure   :Int
   updatedAt   :String
   area :String
+}
+input LocationInput{
+  latitude: Float
+  longitude: Float
 }
 
 enum RoleInput{
@@ -213,6 +217,7 @@ type Mutation {
   updateFarm(_id: ID!, input: FarmInput): Farm
   deleteFarm(_id: ID!): Farm
   createCowproperty(input: CowpropertyInput): Cowproperty
+  # createManyCowproperty(input: CowpropertyInput): Cowproperty
   updateCowproperty(_id: ID!, input: CowpropertyInput): Cowproperty
   deleteCowproperty(_id: ID!): Cowproperty
   createActivity(input: ActivityInput): Activity

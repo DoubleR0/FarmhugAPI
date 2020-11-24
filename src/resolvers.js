@@ -82,6 +82,9 @@ const resolvers = {
     async createCowproperty(root, { input }) {
       return await cowproperty.create(input);
     },
+    // async createManyCowproperty(root, { input }) {
+    //   return await cowproperty.bulkWrite(input);
+    // },
     async updateCowproperty(root, { _id, input }) {
       return await cowproperty.findOneAndUpdate({
         _id
