@@ -7,7 +7,7 @@ const JWTStrategy = passportjwt.Strategy
 const localStrategy = passportlocal.Strategy
 
 
-const {ExtractJwt} = passportjwt
+const { ExtractJwt } = passportjwt
 import User from '../models/user.js'
 
 passport.use(new JWTStrategy({
@@ -38,16 +38,16 @@ passport.use(new localStrategy({
     try {
         //find specific token
         const user = await User.findOne({
-                username: username
-        }).then(async (aUser) => {
-            const isMatch = await bcrypt.compare(password, aUser.password);
-
-            if (!isMatch) {
-                return done(null, false)
-            }
-
-            done(null, aUser)
+            username: username
         })
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return done(null, false)
+        }
+
+        done(null, user)
+
         //user is not exits
         if (!user) {
             return done(null, false)

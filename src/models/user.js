@@ -20,6 +20,7 @@ const dataSchema = new Schema({
   type: {type: String},
   role: {type: String},
   farm_id: {type: String},
+  isProfile: {type: Boolean},
 })
 
 const data = mongoose.model('User', dataSchema, 'user')

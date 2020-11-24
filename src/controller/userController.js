@@ -41,6 +41,7 @@ const create_user = async (req, res) => {
             type: "",
             role: "NONE",
             farm_id: "",
+            isProfile: false,
         };
 
         const isUser = await User.findOne({ username: user.username})
@@ -75,7 +76,8 @@ const login = async (req, res, next) => {
     // Validate request
     const token = signToken(req.user)
     res.json(200, {
-        token
+        token,
+        profile : {...req.user._doc, password : ''},
     })
     console.log('login successful : ', new Date())
 

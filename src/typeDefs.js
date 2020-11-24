@@ -56,6 +56,7 @@ type User{
   type :String
   role :Role
   farm_id :ID
+  isProfile: Boolean
 }
 
 type Authentication{
