@@ -107,6 +107,7 @@ input UserInput{
   type :String
   role :RoleInput
   farm_id :ID
+  isProfile: Boolean
 }
 
 input CowpropertyInput{
