@@ -250,7 +250,7 @@ type Query {
   activity(_id: ID!): [Activity]!
   stall(_id: ID!): [Stall]!
   post(_id: ID!): [Post]!
-  comments(_id: ID!): [Comment]!
+  comment(_id: ID!): [Comment]!
 }
 
 type Mutation {
