@@ -9,7 +9,7 @@ const dataSchema = new Schema({
     food : {type: Number},
     water : {type: Number},
     manure : {type: Number},
-    updatedAt : {type: Date},
+    updatedAt : {type: String},
     area : {type: String},
 })
 

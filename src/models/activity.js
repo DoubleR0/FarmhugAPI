@@ -8,8 +8,8 @@ const dataSchema = new Schema({
     cage_id : {type: String},
     stall_id : {type: String},
     type : {type: String},
-    alertDate : {type: Date},
-    updatedAt : {type: Date},
+    alertDate : {type: String},
+    updatedAt : {type: String},
     status : {type: String},
     creater_id : {type: String},
 })

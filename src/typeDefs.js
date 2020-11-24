@@ -3,17 +3,6 @@ const { gql, useMutation } = pkg;
 
 export default gql`
 
-type DateTime{
-  day: String
-  a_date: Int
-  month: String
-  a_month: Int
-  a_year: Int
-  hours: Int
-  minutes: Int
-  seconds: Int
-}
-
 enum Role{
   Owner
   Employee
@@ -38,7 +27,7 @@ type Farm{
   location :String
   capacity :Int
   cow :Int
-  createdAt :DateTime
+  createdAt :String
   watercheck :Int
   foodConsume :Int
   employee :Int
@@ -89,8 +78,8 @@ type Activity{
   stall_id :ID
   type :String
   detail  :String
-  alertDate :DateTime
-  updatedAt  :DateTime
+  alertDate :String
+  updatedAt  :String
   status  :Status
   creater_id  :ID
 }
@@ -103,7 +92,7 @@ type Stall{
   food   :Int
   water   :Int
   manure   :Int
-  updatedAt   :DateTime
+  updatedAt   :String
   area :String
 }
 
@@ -146,7 +135,7 @@ input FarmInput{
   location :String
   capacity :Int
   cow :Int
-  createdAt :DateTimeInput
+  createdAt :String
   watercheck :Int
   foodConsume :Int
   employee :Int
@@ -164,8 +153,8 @@ input ActivityInput{
   stall_id :ID
   type :String
   detail  :String
-  alertDate :DateTimeInput
-  updatedAt  :DateTimeInput
+  alertDate :String
+  updatedAt  :String
   status  :StatusInput
   creater_id  :ID
 }
@@ -178,20 +167,8 @@ input StallInput{
   food   :Int
   water   :Int
   manure   :Int
-  updatedAt   :DateTimeInput
+  updatedAt   :String
   area :String
-}
-
-input DateTimeInput{
-  day: String
-  a_date: Int
-  month: String
-  a_month: Int
-  year: String
-  a_year: Int
-  hours: Int
-  minutes: Int
-  seconds: Int
 }
 
 enum RoleInput{
@@ -215,7 +192,7 @@ type Query {
   stalls: [Stall]!
   user(_id: ID!): User
   authentication(_id: ID!): Authentication
-  farm(_id: ID!): [Farm]!
+  farm(_id: ID!): Farm
   cowproperty(_id: ID!): [Cowproperty]!
   activity(_id: ID!): [Activity]!
   stall(_id: ID!): [Stall]!
