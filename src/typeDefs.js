@@ -74,7 +74,7 @@ type Activity{
   _id: ID
   name :String
   farm_id :ID
-  cage_id :ID
+  animal_id :ID
   stall_id :ID
   type :String
   detail  :String
@@ -149,7 +149,7 @@ input AuthenticationInput{
 input ActivityInput{
   name :String
   farm_id :ID
-  cage_id :ID
+  animal_id :ID
   stall_id :ID
   type :String
   detail  :String

@@ -5,7 +5,7 @@ const dataSchema = new Schema({
     name : {type: String},
     detail : {type: String},
     farm_id : {type: String},
-    cage_id : {type: String},
+    animal_id : {type: String},
     stall_id : {type: String},
     type : {type: String},
     alertDate : {type: String},
