@@ -58,7 +58,6 @@ type Cowproperty{
   _id: ID
   name :String
   type :String
-  stall :Int
   gene :String
   weight :Float
   height :Float
@@ -113,7 +112,6 @@ input UserInput{
 input CowpropertyInput{
   name :String
   type :String
-  stall :Int
   gene :String
   weight :Float
   height :Float
